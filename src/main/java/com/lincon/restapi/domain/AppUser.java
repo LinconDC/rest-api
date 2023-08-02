@@ -1,9 +1,6 @@
 package com.lincon.restapi.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
@@ -12,7 +9,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class User implements Serializable {
+@Table(name = "app_user")
+public class AppUser implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -27,11 +25,11 @@ public class User implements Serializable {
     @NotEmpty(message = "This field is mandatory")
     private String password;
 
-    public User() {
+    public AppUser() {
         super();
     }
 
-    public User(Integer id, String name, String login, String password) {
+    public AppUser(Integer id, String name, String login, String password) {
         super();
         this.id = id;
         this.name = name;
@@ -75,8 +73,8 @@ public class User implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        AppUser appUser = (AppUser) o;
+        return Objects.equals(id, appUser.id);
     }
 
     @Override
