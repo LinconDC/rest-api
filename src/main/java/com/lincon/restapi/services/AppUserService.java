@@ -24,4 +24,12 @@ public class AppUserService {
     public List<AppUser> findAll() {
         return repository.findAll();
     }
+
+    public AppUser update(Integer id, AppUser obj) {
+        AppUser newObj = findById(id);
+        newObj.setName(obj.getName());
+        newObj.setLogin(obj.getLogin());
+        newObj.setPassword(obj.getPassword());
+        return repository.save(newObj);
+    }
 }

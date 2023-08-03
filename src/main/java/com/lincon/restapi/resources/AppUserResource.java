@@ -4,10 +4,7 @@ import com.lincon.restapi.domain.AppUser;
 import com.lincon.restapi.services.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,11 @@ public class AppUserResource {
     public ResponseEntity<List<AppUser>> findAll() {
         List<AppUser> list = service.findAll();
         return ResponseEntity.ok().body(list);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<AppUser> update(@PathVariable Integer id, @RequestBody AppUser obj) {
+        AppUser newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
     }
 }
