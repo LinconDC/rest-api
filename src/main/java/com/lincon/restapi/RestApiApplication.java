@@ -22,9 +22,9 @@ public class RestApiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		AppUser u1 = new AppUser(null, "Lincon Martins", "lincon", "123");
-		AppUser u2 = new AppUser(null, "Miyamoto Musashi", "mimu", "123");
+		//AppUser u1 = new AppUser(null, "Lincon Martins", "lincon", "123");
+		//AppUser u2 = new AppUser(null, "Miyamoto Musashi", "mimu", "123");
 
-		userRepository.saveAll(Arrays.asList(u1, u2));
+		//userRepository.saveAll(Arrays.asList(u1, u2));
 	}
 }
