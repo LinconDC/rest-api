@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/appusers")
 public class AppUserResource {
@@ -19,5 +21,11 @@ public class AppUserResource {
     public ResponseEntity<AppUser> findById(@PathVariable Integer id) {
         AppUser obj = this.service.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<AppUser>> findAll() {
+        List<AppUser> list = service.findAll();
+        return ResponseEntity.ok().body(list);
     }
 }
