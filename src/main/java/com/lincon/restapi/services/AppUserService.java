@@ -37,4 +37,9 @@ public class AppUserService {
         obj.setId(null);
         return repository.save(obj);
     }
+
+    public void delete(Integer id) {
+        findById(id);
+        repository.deleteById(id);
+    }
 }
