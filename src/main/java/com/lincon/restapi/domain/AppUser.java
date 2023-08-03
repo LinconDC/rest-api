@@ -21,8 +21,10 @@ public class AppUser implements Serializable {
     @Length(min = 3, max = 100, message = "The name can contain between 3 and 100 characters ")
     private String name;
     @NotEmpty(message = "This field is mandatory")
+    @Length(min = 3, max = 100, message = "The login can contain between 3 and 100 characters ")
     private String login;
     @NotEmpty(message = "This field is mandatory")
+    @Length(min = 3, max = 100, message = "The password can contain between 3 and 100 characters ")
     private String password;
 
     public AppUser() {
