@@ -32,4 +32,9 @@ public class AppUserService {
         newObj.setPassword(obj.getPassword());
         return repository.save(newObj);
     }
+
+    public AppUser create(AppUser obj) {
+        obj.setId(null);
+        return repository.save(obj);
+    }
 }
